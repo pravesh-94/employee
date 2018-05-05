@@ -1,0 +1,62 @@
+<div class="full-width">
+  <h3>Employees List</h3>
+  <div class="input-form-control">
+    <label>Search by name or city: </label>
+    <input type="text" (keyup)="searchEmployee($event)" placeholder="search">
+  </div>
+  <div class="full-width">
+    <button class="add-button" (click)="addEmployee()">Add Employee</button>
+    <p>Note: Click on the column name to sort.</p>
+  </div>
+
+  <table class="full-width">
+    <tr>
+      <th class="show-pointer" (click)="sortEmployees('id')">
+        Id
+        <span *ngIf="isSorted && sortColumnName == 'id'"><i class="fa fa-angle-double-up"></i></span>
+        <span *ngIf="!isSorted && sortColumnName == 'id'"><i class="fa fa-angle-double-down"></i></span>
+      </th>
+      <th class="show-pointer" (click)="sortEmployees('name')">
+        Name
+        <span *ngIf="isSorted && sortColumnName == 'name'"><i class="fa fa-angle-double-up"></i></span>
+        <span *ngIf="!isSorted && sortColumnName == 'name'"><i class="fa fa-angle-double-down"></i></span>
+      </th>
+      <th class="show-pointer" (click)="sortEmployees('phone')">
+        Phone
+        <span *ngIf="isSorted && sortColumnName == 'phone'"><i class="fa fa-angle-double-up"></i></span>
+        <span *ngIf="!isSorted && sortColumnName == 'phone'"><i class="fa fa-angle-double-down"></i></span>
+      </th>
+      <th class="show-pointer" (click)="sortEmployees('address.city')">
+        City
+        <span *ngIf="isSorted && sortColumnName == 'address.city'"><i class="fa fa-angle-double-up"></i></span>
+        <span *ngIf="!isSorted && sortColumnName == 'address.city'"><i class="fa fa-angle-double-down"></i></span>
+      </th>
+      <th class="show-pointer" (click)="sortEmployees('address.address_line1')">
+        Address 1
+        <span *ngIf="isSorted && sortColumnName == 'address.address_line1'"><i class="fa fa-angle-double-up"></i></span>
+        <span *ngIf="!isSorted && sortColumnName == 'address.address_line1'"><i class="fa fa-angle-double-down"></i></span>
+      </th>
+      <th class="show-pointer" (click)="sortEmployees('address.address_line2')">
+        Address 2
+        <span *ngIf="isSorted && sortColumnName == 'address.address_line2'"><i class="fa fa-angle-double-up"></i></span>
+        <span *ngIf="!isSorted && sortColumnName == 'address.address_line2'"><i class="fa fa-angle-double-down"></i></span>
+      </th>
+      <th class="show-pointer" (click)="sortEmployees('address.postal_code')">
+        Postal Code
+        <span *ngIf="isSorted && sortColumnName == 'address.postal_code'"><i class="fa fa-angle-double-up"></i></span>
+        <span *ngIf="!isSorted && sortColumnName == 'address.postal_code'"><i class="fa fa-angle-double-down"></i></span>
+      </th>
+      <th>Edit</th>
+    </tr>
+    <tr *ngFor="let item of employeeList; let i = index">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.address.city}}</td>
+      <td>{{item.address.address_line1}}</td>
+      <td>{{item.address.address_line2}}</td>
+      <td>{{item.address.postal_code}}</td>
+      <td class="edit-link" (click)="editEmployee(item)">Edit</td>
+    </tr>
+  </table>
+</div>

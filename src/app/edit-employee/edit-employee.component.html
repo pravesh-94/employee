@@ -1,0 +1,37 @@
+<h3>Edit Employee</h3>
+
+<div class="full-width form-container">
+  <form [formGroup]="editEmployeeForm" (ngSubmit)="editEmployee(editEmployeeForm.value)">
+    <div class="input-form-control">
+      <label>Name</label>
+      <input type="text" formControlName="name">
+      <span *ngIf="editEmployeeForm.controls['name'].invalid && editEmployeeForm.controls['name'].dirty" class="error-message">
+        Name is required and cannot be less than 4 characters.
+      </span>
+    </div>
+    <div class="input-form-control">
+      <label>Phone</label>
+      <input type="text" formControlName="phone" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+      <span *ngIf="editEmployeeForm.controls['phone'].invalid && editEmployeeForm.controls['phone'].dirty" class="error-message">
+        Phone is required.
+      </span>
+    </div>
+    <div class="input-form-control">
+      <label>City</label>
+      <input type="text" formControlName="city">
+    </div>
+    <div class="input-form-control">
+      <label>Address Line 1</label>
+      <input type="text" formControlName="address_line1">
+    </div>
+    <div class="input-form-control">
+      <label>Address Line 2</label>
+      <input type="text" formControlName="address_line2">
+    </div>
+    <div class="input-form-control">
+      <label>Postal code</label>
+      <input type="text" formControlName="postal_code" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+    </div>
+    <button type="submit" [disabled]="editEmployeeForm.invalid">Edit</button>
+  </form>
+</div>

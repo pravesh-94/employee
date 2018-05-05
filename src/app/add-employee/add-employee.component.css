@@ -1,0 +1,15 @@
+.form-container {
+  padding: 15px 0;
+}
+.input-form-control {
+  padding: 10px 0;
+}
+label {
+  width: 125px;
+}
+button{
+  cursor: pointer;
+}
+.error-message{
+  color: red;
+}
