@@ -7,7 +7,7 @@ export class EmployeeService {
 
   constructor() { }
 
-  employees: any = {"data":
+  employees: any = {data:
     [
       {
         "id": 1,
